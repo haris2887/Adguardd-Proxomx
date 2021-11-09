@@ -6,7 +6,7 @@ read -p ' Default Gateway eg 192.168.1.1: ' gw
 pveam update
 pveam download local alpine-3.14-default_20210623_amd64.tar.xz
 
-pct create $number local:vztmpl/alpine-3.14-default_20210623_amd64.tar.xz --ostype alpine --hostname $name --net0 name=eth0,ip=$ip,gw=$gw,bridge=vmbr0 --memory 512 --cores $cpu --unprivileged 1 --nameserver 9.9.9.9 --cmode shell
+pct create $number local:vztmpl/alpine-3.14-default_20210623_amd64.tar.xz --ostype alpine --hostname $name --net0 name=eth0,ip=$ip,gw=$gw,bridge=vmbr0 --memory 512 --cores $cpu --unprivileged 1 --cmode shell --onboot 1
 pct start $number
 
 pct exec $number apk update
