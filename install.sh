@@ -20,3 +20,4 @@ pct exec $number chmod +x /etc/init.d/AdGuardHome
 
 pct exec $number rc-update add AdGuardHome
 pct exec $number rc-update add AdGuardHome boot
+pct exec $number reboot
