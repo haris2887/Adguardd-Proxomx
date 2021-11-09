@@ -1,8 +1,8 @@
 read -p 'Container ID Number: ' number
 read -p 'Container Name: ' name
 read -p ' CPU Cores:' cpu
-read -p ' IP Address Of container (/CIDR) :eg 192.168.1.20/24' ip
-read -p ' Default Gateway: eg 192.168.1.1' gw
+read -p ' IP Address Of container (/CIDR) :eg 192.168.1.20/24:' ip
+read -p ' Default Gateway: eg 192.168.1.1:' gw
 pveam update
 pveam download local alpine-3.14-default_20210623_amd64.tar.xz
 
