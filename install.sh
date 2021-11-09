@@ -1,8 +1,8 @@
 read -p 'Container ID Number: ' number
 read -p 'Container Name: ' name
 read -p ' CPU Cores:' cpu
-read -p ' IP Address Of container (/CIDR) :eg 192.168.1.20/24:' ip
-read -p ' Default Gateway: eg 192.168.1.1:' gw
+read -p ' Static IP Address Of container (/CIDR) eg 192.168.1.20/24: ' ip
+read -p ' Default Gateway eg 192.168.1.1: ' gw
 pveam update
 pveam download local alpine-3.14-default_20210623_amd64.tar.xz
 
@@ -23,3 +23,5 @@ pct exec $number chmod +x /etc/init.d/AdGuardHome
 pct exec $number rc-update add AdGuardHome
 pct exec $number rc-update add AdGuardHome boot
 pct exec $number reboot
+
+echo You can now browse to $ip:3000 to resume the rest of the configuration.
