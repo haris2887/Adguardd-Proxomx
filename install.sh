@@ -6,9 +6,9 @@ read -p ' Default Gateway eg 192.168.1.1: ' gw
 brctl show
 read -p ' From the above list please specify bridge name for the container network EG vmbr0: ' bridge
 pveam update
-pveam download local alpine-3.14-default_20210623_amd64.tar.xz
+pveam download local alpine-3.16-default_20220622_amd64.tar.xz
 
-pct create $number local:vztmpl/alpine-3.14-default_20210623_amd64.tar.xz --ostype alpine --hostname $name --net0 name=eth0,ip=$ip,gw=$gw,bridge=$bridge --memory 512 --cores $cpu --unprivileged 1 --cmode shell --onboot 1
+pct create $number local:vztmpl/alpine-3.16-default_20220622_amd64.tar.xz --ostype alpine --hostname $name --net0 name=eth0,ip=$ip,gw=$gw,bridge=$bridge --memory 512 --cores $cpu --unprivileged 1 --cmode shell --onboot 1 --storage=local-lvm
 pct start $number
 
 pct exec $number apk update
